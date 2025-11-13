@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+
+class CustemTextFormFelid extends StatelessWidget {
+  final TextEditingController controller;
+  final TextInputType? keyboardType;
+  final String? hintText;
+  final Widget? prefixIcon;
+  final String? labelText;
+  final String? Function(String?)? validator;
+
+  CustemTextFormFelid({
+    super.key,
+    required this.controller,
+    this.keyboardType,
+    this.hintText,
+    this.prefixIcon,
+    this.labelText,
+    required this.validator,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final GlobalKey<FormState> _formKay = GlobalKey<FormState>();
+    return TextFormField(
+      controller: controller,
+      keyboardType: keyboardType,
+      validator: validator,
+      decoration: InputDecoration(
+        hintText: hintText ?? "",
+        prefixIcon: prefixIcon,
+        labelText: labelText ?? "",
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Color(0xFF0D5EF9)),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Colors.red),
+        ),
+      ),
+    );
+  }
+}
+//  (value) {
+//         if (value == null || value.isEmpty) {
+//           return 'Please Enter Your Phone Number';
+//         }
+//         return null;
+//       },
