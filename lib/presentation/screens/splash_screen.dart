@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khsomati/constants/app_constant.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,16 +16,13 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 5), () {
       Navigator.pushReplacementNamed(context, '/home');
     });
-    // Future.delayed(const Duration(seconds: 5), () {
-    //   Navigator.pushReplacementNamed(context, '/home');
-    // });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(child: Image.asset("assets/logos/logo_app.PNG", width: 200)),
+      body: Center(child: Image.asset(AppConstant.logoApp, fit: BoxFit.cover)),
     );
   }
 }
