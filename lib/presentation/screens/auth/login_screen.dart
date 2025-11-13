@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:khsomati/business_logic/cubit/cubit/auth_cubit.dart';
 import 'package:khsomati/presentation/widget/text_form_felid.dart';
+import 'package:khsomati/router/route_string.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -74,16 +77,37 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKay.currentState!.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                'تم تسجيل الدخول برقم ${phoneNumber.text.trim()} ',
-                              ),
-                            ),
+                          context.read<AuthCubit>().sendCode(
+                            phone: phoneNumber.text.trim(),
                           );
                         }
                       },
-                      child: Text("aaaaa"),
+                      child: BlocConsumer<AuthCubit, AuthState>(
+                        builder: (context, state) {
+                          if (state is AuthLoading) {
+                            return CircularProgressIndicator();
+                          } else {
+                            return Text("Login");
+                          }
+                        },
+                        listener: (BuildContext context, AuthState state) {
+                          if (state is AuthLogedIn) {
+                            Navigator.pushReplacementNamed(
+                              context,
+                              RouteString.home,
+                            );
+                          } else if (state is AuthError) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(state.message),
+                                backgroundColor: Colors.red,
+                                behavior: SnackBarBehavior.floating,
+                              ),
+                            );
+                            print(state.message);
+                          }
+                        },
+                      ),
                     ),
                   ),
                 ],

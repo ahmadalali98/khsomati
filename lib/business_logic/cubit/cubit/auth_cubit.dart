@@ -14,7 +14,7 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
     try {
       await auth.verifyPhoneNumber(
-        phoneNumber: phone,
+        phoneNumber: '+962$phone',
         timeout: const Duration(seconds: 60),
         verificationCompleted: (PhoneAuthCredential credential) async {
           final userCredential = await auth.signInWithCredential(credential);
