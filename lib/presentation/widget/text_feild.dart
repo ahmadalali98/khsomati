@@ -30,7 +30,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     this.obscureText = false,
     this.obscuringCharacter = '★',
-    this.cursorColor = AppColors.primaryColor,
+    this.cursorColor = AppColors.primary,
     this.autovalidateMode = AutovalidateMode.disabled,
     this.contentPadding = const EdgeInsets.fromLTRB(20, 10, 20, 10),
   });
@@ -88,7 +88,7 @@ class CustomTextFormField extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.start,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.primaryColor),
+          borderSide: BorderSide(color: AppColors.primary),
         ),
         filled: filled,
         hintText: hintText,
