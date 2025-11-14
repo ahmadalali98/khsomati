@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:khsomati/business_logic/cubit/cubit/auth_cubit.dart';
 import 'package:khsomati/constants/app_colors.dart';
+import 'package:khsomati/constants/app_size.dart';
 import 'package:khsomati/presentation/widget/custom_phone.dart';
 import 'package:khsomati/router/route_string.dart';
 
@@ -37,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     'Welcome To ',
                     style: TextStyle(
                       fontFamily: 'Lato',
-                      fontSize: w * 0.06,
+                      fontSize: AppSize.width * 0.06,
                       height: 1.0,
                       letterSpacing: 0,
                       fontWeight: FontWeight.w500,
