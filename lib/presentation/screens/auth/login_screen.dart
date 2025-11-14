@@ -106,10 +106,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                         },
                         listener: (context, state) {
-                          if (state is AuthLogedIn) {
+                          if (state is CodeSentState) {
                             Navigator.pushReplacementNamed(
                               context,
                               RouteString.otp,
+                              arguments: state.verificationId,
                             );
                           } else if (state is AuthError) {
                             ScaffoldMessenger.of(context).showSnackBar(
