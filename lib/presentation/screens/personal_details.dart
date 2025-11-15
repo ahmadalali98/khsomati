@@ -2,11 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-<<<<<<< HEAD
-import 'package:khsomati/business_logic/cubit/localization/localization_cubit.dart';
-=======
 import 'package:khsomati/business_logic/cubit/auth/auth_cubit.dart';
->>>>>>> 6b6d6be2b61563ccf23d458fa5ef1e14b0814c3d
+import 'package:khsomati/business_logic/cubit/localization/localization_cubit.dart';
 import 'package:khsomati/constants/app_colors.dart';
 import 'package:khsomati/constants/app_size.dart';
 import 'package:khsomati/constants/translation/app_translation.dart';
