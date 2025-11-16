@@ -68,7 +68,7 @@ class CustomComponentsDrawer extends StatelessWidget {
 
         const Divider(color: Colors.grey),
         Padding(
-          padding: const EdgeInsets.all(10), // استخدام const لتحسين الأداء
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               ListTileWidget(
@@ -76,7 +76,7 @@ class CustomComponentsDrawer extends StatelessWidget {
                 leading: Icons.person_outline,
                 onTap: () {},
               ),
-              // مسافة أقل بين العناصر
+
               SizedBox(height: 10),
 
               ListTileWidget(
@@ -98,7 +98,7 @@ class CustomComponentsDrawer extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 10), // مسافة أقل
+              SizedBox(height: 10),
 
               ListTileWidget(
                 text: t(AppTranslation.support),
@@ -106,14 +106,14 @@ class CustomComponentsDrawer extends StatelessWidget {
                 onTap: () {},
               ),
 
-              SizedBox(height: 10), // مسافة أقل
+              SizedBox(height: 10),
               ListTileWidget(
                 text: t(AppTranslation.notifications),
                 leading: CupertinoIcons.bell,
                 onTap: () {},
               ),
 
-              SizedBox(height: 10), // مسافة أقل
+              SizedBox(height: 10),
 
               ListTileWidget(
                 text: t(AppTranslation.privacypolices),
