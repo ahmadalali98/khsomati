@@ -5,14 +5,12 @@ class OnBoardingModel {
   final String descAr;
   final String image;
 
-  OnBoardingModel(
-    {
+  OnBoardingModel({
     required this.titleAr,
     required this.descAr,
     required this.titleEn,
     required this.descEn,
     required this.image,
-
   });
 }
 
@@ -21,7 +19,8 @@ List<OnBoardingModel> onBoardingData = [
     titleAr: "اكتشف أفضل العروض",
     descAr: "تصفح آلاف المنتجات والعروض الحصرية من متاجرك المفضلة في مكان واحد",
     titleEn: "Discover the Best Deals",
-    descEn: "Explore thousands of products and exclusive offers from your favorite stores — all in one place.",
+    descEn:
+        "Explore thousands of products and exclusive offers from your favorite stores — all in one place.",
     image: "assets/images/onBoarding_one.png",
   ),
   OnBoardingModel(
@@ -35,8 +34,8 @@ List<OnBoardingModel> onBoardingData = [
     titleAr: "تسوق بذكاء وادفع أقل",
     descAr: "مقارنة الأسعار وتنبيهات الخصومات لتجربة تسوق مذهلة بتوفير كبير",
     titleEn: "Shop Smart & Pay Less",
-    descEn: "Enjoy smart price comparisons and discount alerts for an amazing shopping experience with big savings.",
+    descEn:
+        "Enjoy smart price comparisons and discount alerts for an amazing shopping experience with big savings.",
     image: "assets/images/onBoarding_three.png",
   ),
 ];
-

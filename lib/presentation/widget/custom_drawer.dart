@@ -8,6 +8,37 @@ import 'package:khsomati/constants/app_constant.dart';
 import 'package:khsomati/constants/app_size.dart';
 import 'package:khsomati/constants/translation/app_translation.dart';
 
+class CustomPopUpChangeLanguage extends StatelessWidget {
+  const CustomPopUpChangeLanguage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoActionSheet(
+      actions: [
+        CupertinoActionSheetAction(
+          onPressed: () {
+            final cubit = context.read<LocalizationCubit>();
+            cubit.loadLanguage('ar');
+          },
+          child: Text("Arabic"),
+        ),
+        CupertinoActionSheetAction(
+          onPressed: () {
+            final cubit = context.read<LocalizationCubit>();
+            cubit.loadLanguage('en');
+          },
+          child: Text("English"),
+        ),
+      ],
+      cancelButton: CupertinoActionSheetAction(
+        onPressed: () {},
+        isDestructiveAction: true,
+        child: Text("Cancel"),
+      ),
+    );
+  }
+}
+
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
@@ -37,7 +68,7 @@ class CustomComponentsDrawer extends StatelessWidget {
 
         const Divider(color: Colors.grey),
         Padding(
-          padding: const EdgeInsets.all(10), // استخدام const لتحسين الأداء
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               ListTileWidget(
@@ -45,7 +76,7 @@ class CustomComponentsDrawer extends StatelessWidget {
                 leading: Icons.person_outline,
                 onTap: () {},
               ),
-              // مسافة أقل بين العناصر
+
               SizedBox(height: 10),
 
               ListTileWidget(
@@ -60,10 +91,14 @@ class CustomComponentsDrawer extends StatelessWidget {
                     Text(t(AppTranslation.english)),
                   ],
                 ),
-                onTap: () {},
+                // onTap: () {},
+                onTap: () => showCupertinoModalPopup(
+                  context: context,
+                  builder: (ctx) => CustomPopUpChangeLanguage(),
+                ),
               ),
 
-              SizedBox(height: 10), // مسافة أقل
+              SizedBox(height: 10),
 
               ListTileWidget(
                 text: t(AppTranslation.support),
@@ -71,14 +106,14 @@ class CustomComponentsDrawer extends StatelessWidget {
                 onTap: () {},
               ),
 
-              SizedBox(height: 10), // مسافة أقل
+              SizedBox(height: 10),
               ListTileWidget(
                 text: t(AppTranslation.notifications),
                 leading: CupertinoIcons.bell,
                 onTap: () {},
               ),
 
-              SizedBox(height: 10), // مسافة أقل
+              SizedBox(height: 10),
 
               ListTileWidget(
                 text: t(AppTranslation.privacypolices),

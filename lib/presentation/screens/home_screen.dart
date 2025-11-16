@@ -37,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: AppSize.width * 0.9,
                     child: CustomTextFormField(
                       controller: searchController,
-                      validator: (value) {},
+                      validator: (value) {
+                        return null;
+                      },
                       keyboardType: TextInputType.text,
                       prefixIcon: Icon(Icons.search),
                       hintText: 'Search',
