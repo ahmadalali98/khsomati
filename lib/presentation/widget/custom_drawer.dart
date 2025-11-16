@@ -8,6 +8,37 @@ import 'package:khsomati/constants/app_constant.dart';
 import 'package:khsomati/constants/app_size.dart';
 import 'package:khsomati/constants/translation/app_translation.dart';
 
+class CustomPopUpChangeLanguage extends StatelessWidget {
+  const CustomPopUpChangeLanguage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoActionSheet(
+      actions: [
+        CupertinoActionSheetAction(
+          onPressed: () {
+            // context.read<LocaleCubit>().toArabic();
+            // back();
+          },
+          child: Text("Arabic"),
+        ),
+        CupertinoActionSheetAction(
+          onPressed: () {
+            // context.read<LocaleCubit>().toEnglish();
+            // back();
+          },
+          child: Text("English"),
+        ),
+      ],
+      cancelButton: CupertinoActionSheetAction(
+        onPressed: () {},
+        isDestructiveAction: true,
+        child: Text("Cancel"),
+      ),
+    );
+  }
+}
+
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
@@ -60,7 +91,11 @@ class CustomComponentsDrawer extends StatelessWidget {
                     Text(t(AppTranslation.english)),
                   ],
                 ),
-                onTap: () {},
+                // onTap: () {},
+                onTap: () => showCupertinoModalPopup(
+                  context: context,
+                  builder: (ctx) => CustomPopUpChangeLanguage(),
+                ),
               ),
 
               SizedBox(height: 10), // مسافة أقل

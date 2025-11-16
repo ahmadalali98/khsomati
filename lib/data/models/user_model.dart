@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class UserModel {
   String? id;
   String? firstName;
@@ -43,7 +41,7 @@ class UserModel {
       'firstName': firstName,
       'lastName': lastName,
       'phone': phone,
-      'email':email,
+      'email': email,
       'gender': gender,
       'date': date,
       'photo': photo,

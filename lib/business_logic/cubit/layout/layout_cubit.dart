@@ -1,8 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:khsomati/data/models/user_model.dart';
 import 'package:khsomati/presentation/screens/home_screen.dart';
 import 'package:khsomati/presentation/screens/notifications_screen.dart';
 import 'package:khsomati/presentation/screens/profile_screen.dart';

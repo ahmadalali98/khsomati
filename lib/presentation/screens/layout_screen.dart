@@ -248,13 +248,13 @@ class _LayoutScreenState extends State<LayoutScreen> {
                     // ),
                     bottomNavigationBar: NavigationBar(
                       //currentIndex
-                      selectedIndex: 0,
+                      selectedIndex: currentIndex,
                       indicatorColor: AppColors.primary.withOpacity(0.8),
                       surfaceTintColor: Colors.white,
                       animationDuration: const Duration(milliseconds: 400),
                       // onDestinationSelected: cubit.changeNavBar,
                       onDestinationSelected: (index) {
-                        // context.read<LayoutCubit>().changeNavBar(index);
+                        context.read<LayoutCubit>().changeNavigationBar(index);
                       },
                       destinations: [
                         NavigationDestination(
