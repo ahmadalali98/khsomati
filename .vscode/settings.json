@@ -5,9 +5,12 @@
         "firestore",
         "Khosomati",
         "khsomati",
+        "Lato",
         "Loged",
         "lotties",
         "Matarieh",
-        "notif"
+        "notif",
+        "pinput",
+        "spinkit"
     ]
 }
