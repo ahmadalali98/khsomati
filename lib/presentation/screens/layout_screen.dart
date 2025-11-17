@@ -125,65 +125,78 @@ class _LayoutScreenState extends State<LayoutScreen> {
                             ),
 
                             //  Dropdown في الوسط
-                            Expanded(
-                              child: Center(
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 14),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.primary.withOpacity(0.1),
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  child: DropdownButtonHideUnderline(
-                                    child: DropdownButton<String>(
-                                      value: _selectedValue,
-                                      isExpanded: true,
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down,
-                                        color: Colors.black,
-                                      ),
-                                      hint: const Text(
-                                        "Select Location",
-                                        style: TextStyle(color: Colors.black87),
-                                      ),
-                                      borderRadius: BorderRadius.circular(20),
-                                      dropdownColor: AppColors.darkSecondary,
-                                      items:
-                                          [
-                                            "Location",
-                                            "إربد",
-                                            "عجلون",
-                                            "جرش",
-                                            "المفرق",
-                                            "البلقاء",
-                                            "عمّان",
-                                            "الزرقاء",
-                                            "مادبا",
-                                            "الكرك",
-                                            "الطفيلة",
-                                            "معان",
-                                            "العقبة",
-                                          ].map((location) {
-                                            return DropdownMenuItem(
-                                              value: location,
-                                              child: Text(
-                                                location,
-                                                style: TextStyle(
-                                                  fontSize: 20,
-                                                  color: Colors.grey[500],
-                                                ),
+                            currentIndex == 0 || currentIndex == 2
+                                ? Expanded(
+                                    child: Center(
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 14,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: AppColors.primary.withOpacity(
+                                            0.1,
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                            16,
+                                          ),
+                                        ),
+                                        child: DropdownButtonHideUnderline(
+                                          child: DropdownButton<String>(
+                                            value: _selectedValue,
+                                            isExpanded: true,
+                                            icon: Icon(
+                                              Icons.keyboard_arrow_down,
+                                              color: Colors.black,
+                                            ),
+                                            hint: const Text(
+                                              "Select Location",
+                                              style: TextStyle(
+                                                color: Colors.black87,
                                               ),
-                                            );
-                                          }).toList(),
-                                      onChanged: (value) {
-                                        setState(() {
-                                          _selectedValue = value;
-                                        });
-                                      },
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
+                                            dropdownColor:
+                                                AppColors.darkSecondary,
+                                            items:
+                                                [
+                                                  "Location",
+                                                  "إربد",
+                                                  "عجلون",
+                                                  "جرش",
+                                                  "المفرق",
+                                                  "البلقاء",
+                                                  "عمّان",
+                                                  "الزرقاء",
+                                                  "مادبا",
+                                                  "الكرك",
+                                                  "الطفيلة",
+                                                  "معان",
+                                                  "العقبة",
+                                                ].map((location) {
+                                                  return DropdownMenuItem(
+                                                    value: location,
+                                                    child: Text(
+                                                      location,
+                                                      style: TextStyle(
+                                                        fontSize: 20,
+                                                        color: Colors.grey[500],
+                                                      ),
+                                                    ),
+                                                  );
+                                                }).toList(),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                _selectedValue = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                                  )
+                                : SizedBox(height: 0),
 
                             // 3️⃣ أيقونة الإشعارات
                             IconButton(
