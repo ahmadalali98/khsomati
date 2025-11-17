@@ -1,7 +1,4 @@
-import 'dart:convert';
 import 'dart:ui';
-
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:khsomati/business_logic/cubit/localization/localization_state.dart';
 import 'package:khsomati/constants/translation/ar.dart';

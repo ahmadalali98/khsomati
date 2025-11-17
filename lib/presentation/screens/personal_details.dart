@@ -244,11 +244,6 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                             });
                           }
                         },
-                        child: const Icon(
-                          Icons.edit_calendar_outlined,
-                          size: 18,
-                          color: Colors.white,
-                        ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primary,
                           padding: EdgeInsets.symmetric(
@@ -258,6 +253,11 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18),
                           ),
+                        ),
+                        child: const Icon(
+                          Icons.edit_calendar_outlined,
+                          size: 18,
+                          color: Colors.white,
                         ),
                       ),
                     ],
