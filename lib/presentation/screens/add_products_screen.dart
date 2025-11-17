@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khsomati/constants/app_colors.dart';
 import 'package:khsomati/presentation/screens/create_store_screen.dart';
 
 class AddProductsScreen extends StatefulWidget {
@@ -157,7 +158,7 @@ class _AddProductsScreenState extends State<AddProductsScreen> {
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15),
                                     ),
-                                    backgroundColor: Colors.deepPurple,
+                                    backgroundColor: AppColors.primary,
                                   ),
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
