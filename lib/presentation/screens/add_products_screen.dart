@@ -9,28 +9,11 @@ class AddProductsScreen extends StatefulWidget {
 }
 
 class _AddProductsScreenState extends State<AddProductsScreen> {
-  // قائمة المحلات (تجيبها من API أو Firebase)
-  List<String> storesList = []; // مثال: ['Store 1', 'Store 2'];
-  String? selectedStore;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadStores();
-  }
-
-  void _loadStores() {
-    // هون بتحمل المحلات من الداتا
-    // مثال:
-    // storesList = await MyAPI.getStores();
-    setState(() {
-      storesList = ["zara", "one_minute"]; // اتركها فاضية كمثال
-    });
-  }
-
+  final List stores = ["zara", "nike", "adidas"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
       appBar: AppBar(
         title: const Text("Add Product"),
         leading: IconButton(
@@ -149,20 +132,31 @@ class CreateStoreScreen extends StatelessWidget {
       appBar: AppBar(title: const Text("إنشاء محل")),
       body: Padding(
         padding: const EdgeInsets.all(16),
+=======
+      appBar: AppBar(title: const Text("Add Product")),
+      body: SingleChildScrollView(
+>>>>>>> cf3ac542d2963fd17b2a987673af5d35329baa15
         child: Column(
           children: [
-            TextField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "اسم المحل",
+            Text("Select store or create one"),
+            Expanded(
+              child: SizedBox(
+                height: 30,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: 30,
+                      height: 30,
+                      child: Center(child: Text(stores[index])),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(width: 20);
+                  },
+                  itemCount: stores.length,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context, "created");
-              },
-              child: const Text("حفظ"),
             ),
           ],
         ),
