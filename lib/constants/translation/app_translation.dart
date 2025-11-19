@@ -30,4 +30,11 @@ final class AppTranslation {
   static const String privacypolices = "privacpolices";
   static const String aboutTheApp = "aboutTheApp";
   static const String logOut = " logOut";
+  static const String aboutAppTitle = "aboutAppTitle";
+  static const String aboutAppDescription = "aboutAppDescription";
+  static const String appFeatures = "appFeatures"; // عنوان المميزات
+  static const String featureDailyDiscounts = "featureDailyDiscounts";
+  static const String featureNewOffers = "featureNewOffers";
+  static const String featureNotifications = "featureNotifications";
+  static const String appGoal = "appGoal"; // هدف ا
 }

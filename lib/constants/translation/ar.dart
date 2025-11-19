@@ -29,10 +29,15 @@ class Ar {
     AppTranslation.privacypolices: "سياسة الخصوصية والشروط",
     AppTranslation.aboutTheApp: "نبذة عن التطبيق",
     AppTranslation.logOut: "تسجيل الخروج ",
-    // AppTranslation.
-    // AppTranslation.
-    // AppTranslation.
-    // AppTranslation.
-    // AppTranslation.
+    AppTranslation.aboutAppTitle: "عن تطبيق الخصومات",
+    AppTranslation.aboutAppDescription:
+        "يساعد هذا التطبيق المستخدمين على الحصول على أفضل العروض والخصومات في المتاجر والمطاعم القريبة منهم.",
+    AppTranslation.appFeatures: "مميزات التطبيق",
+    AppTranslation.featureDailyDiscounts: "عرض الخصومات اليومية.",
+    AppTranslation.featureNewOffers: "متابعة العروض الجديدة باستمرار.",
+    AppTranslation.featureNotifications:
+        "إشعارات بالعروض المهمة لضمان عدم تفويت أي خصم.",
+    AppTranslation.appGoal:
+        "هدفنا هو تسهيل تجربة التسوق وتوفير الوقت والمال لكل مستخدم.",
   };
 }

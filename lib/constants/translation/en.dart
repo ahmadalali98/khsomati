@@ -30,5 +30,15 @@ class En {
     AppTranslation.privacypolices: "Privacy & Polices",
     AppTranslation.aboutTheApp: "About The App",
     AppTranslation.logOut: "Log Out",
+    AppTranslation.aboutAppTitle: "About Discount App",
+    AppTranslation.aboutAppDescription:
+        "This app helps users get the best offers and discounts in nearby stores and restaurants.",
+    AppTranslation.appFeatures: "App Features",
+    AppTranslation.featureDailyDiscounts: "Daily discounts display.",
+    AppTranslation.featureNewOffers: "Keep up with new offers continuously.",
+    AppTranslation.featureNotifications:
+        "Important offer notifications to ensure you never miss a discount.",
+    AppTranslation.appGoal:
+        "Our goal is to simplify the shopping experience and save time and money for every user.",
   };
 }

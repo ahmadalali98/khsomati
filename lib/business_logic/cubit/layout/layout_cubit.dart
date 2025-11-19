@@ -20,14 +20,36 @@ class LayoutCubit extends Cubit<LayoutState> {
       case 0:
         return HomeScreen();
       case 1:
-        return const NotificationsScreen();
-
+        // return NotificationsScreen();
+        return ComingSoonScreen();
       case 2:
-        return const ShopScreen();
-      case 3:
         return ProfileScreen();
       default:
         return HomeScreen();
     }
   }
 }
+
+// class LayoutCubit extends Cubit<LayoutState> {
+//   LayoutCubit() : super(LayoutInitial());
+
+//   void changeNavigationBar(int index) {
+//     emit(state.copyWith(currentIndex: index));
+//   }
+
+//   Widget screen(BuildContext context) {
+//     switch (state.currentIndex) {
+//       case 0:
+//         return HomeScreen();
+//       case 1:
+//         return const NotificationsScreen();
+
+//       case 2:
+//         return const ShopScreen();
+//       case 3:
+//         return ProfileScreen();
+//       default:
+//         return HomeScreen();
+//     }
+//   }
+// }

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
+import 'package:khsomati/business_logic/cubit/localization/localization_cubit.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:khsomati/constants/app_size.dart';
+import 'package:khsomati/constants/app_colors.dart';
+import 'package:khsomati/constants/translation/app_translation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AboutTheApp extends StatefulWidget {
   const AboutTheApp({super.key});
@@ -12,22 +16,6 @@ class AboutTheApp extends StatefulWidget {
 class _AboutTheAppState extends State<AboutTheApp> {
   String appVersion = '';
 
-  final String htmlContent = """
-  <h1 style="color:#004445;">عن تطبيق الخصومات</h1>
-  <p style="font-size:16px; color:#333333;">
-    يساعد هذا التطبيق المستخدمين على الحصول على أفضل العروض والخصومات في المتاجر والمطاعم القريبة منهم.
-  </p>
-  <h2 style="color:#004445;">مميزات التطبيق</h2>
-  <ul style="font-size:16px; color:#333333;">
-    <li>عرض الخصومات اليومية.</li>
-    <li>متابعة العروض الجديدة باستمرار.</li>
-    <li>إشعارات بالعروض المهمة لضمان عدم تفويت أي خصم.</li>
-  </ul>
-  <p style="font-size:16px; color:#333333;">
-    هدفنا هو تسهيل تجربة التسوق وتوفير الوقت والمال لكل مستخدم.
-  </p>
-  """;
-
   @override
   void initState() {
     super.initState();
@@ -37,16 +25,18 @@ class _AboutTheAppState extends State<AboutTheApp> {
   Future<void> _loadAppVersion() async {
     final packageInfo = await PackageInfo.fromPlatform();
     setState(() {
-      appVersion = packageInfo
-          .version; // أو packageInfo.version + "+" + packageInfo.buildNumber
+      appVersion = packageInfo.version;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    // استخدام نظام الترجمة عبر LocalizationCubit
+    final t = context.read<LocalizationCubit>().translate;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("عن التطبيق"),
+        title: Text(t(AppTranslation.aboutAppTitle)),
         backgroundColor: Colors.teal,
         elevation: 0,
       ),
@@ -70,38 +60,95 @@ class _AboutTheAppState extends State<AboutTheApp> {
             child: Padding(
               padding: const EdgeInsets.all(20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Html(
-                    data: htmlContent,
-                    style: {
-                      "h1": Style(
-                        fontSize: FontSize.xxLarge,
-                        fontWeight: FontWeight.bold,
-                        textAlign: TextAlign.center,
+                  Center(
+                    child: Text(
+                      t(AppTranslation.aboutAppTitle),
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: AppSize.width * 0.07,
+                        fontWeight: FontWeight.w700,
+                        height: 1.2,
+                        color: AppColors.primary,
                       ),
-                      "h2": Style(
-                        fontSize: FontSize.large,
-                        fontWeight: FontWeight.w600,
-                        // margin: const EdgeInsets.symmetric(vertical: 10),
-                      ),
-                      "p": Style(
-                        fontSize: FontSize.medium,
-                        lineHeight: LineHeight.number(1.5),
-                      ),
-                      "li": Style(
-                        fontSize: FontSize.medium,
-                        // margin: const EdgeInsets.symmetric(vertical: 4),
-                      ),
-                    },
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    t(AppTranslation.aboutAppDescription),
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: AppSize.width * 0.045,
+                      height: 1.5,
+                      color: Colors.black87,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    t(AppTranslation.appFeatures),
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: AppSize.width * 0.055,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "• ${t(AppTranslation.featureDailyDiscounts)}",
+                          style: TextStyle(
+                            fontFamily: 'Lato',
+                            fontSize: AppSize.width * 0.045,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        Text(
+                          "• ${t(AppTranslation.featureNewOffers)}",
+                          style: TextStyle(
+                            fontFamily: 'Lato',
+                            fontSize: AppSize.width * 0.045,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        Text(
+                          "• ${t(AppTranslation.featureNotifications)}",
+                          style: TextStyle(
+                            fontFamily: 'Lato',
+                            fontSize: AppSize.width * 0.045,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    t(AppTranslation.appGoal),
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: AppSize.width * 0.045,
+                      height: 1.5,
+                      color: Colors.black87,
+                    ),
                   ),
                   const SizedBox(height: 20),
                   if (appVersion.isNotEmpty)
-                    Text(
-                      "الإصدار: $appVersion",
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey,
+                    Center(
+                      child: Text(
+                        "${t(AppTranslation.aboutAppTitle)}: $appVersion",
+                        style: TextStyle(
+                          fontFamily: 'Lato',
+                          fontSize: AppSize.width * 0.04,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey,
+                        ),
                       ),
                     ),
                 ],
