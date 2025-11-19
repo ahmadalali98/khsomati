@@ -121,6 +121,7 @@ Future<void> _initFirebaseMessaging() async {
     });
   }
 }
+// nkldfnb
 
 // ===== APP WIDGET =====
 class Khosomati extends StatelessWidget {
